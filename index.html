@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TacCast learns camera-aligned contact representations for sim-to-real dexterous grasping without tactile hardware at deployment." />
+    <meta name="author" content="Anonymous Authors" />
+    <title>TacCast · Camera-Aligned Contact for Dexterous Grasping</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <div class="hero-video-grid">
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.00"><source src="./assets/clips/cube.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.16"><source src="./assets/clips/orange.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.32"><source src="./assets/clips/bottle.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.48"><source src="./assets/clips/box.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.64"><source src="./assets/clips/peach.mp4" type="video/mp4" /></video></div>
+
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.21"><source src="./assets/clips/bottle.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.37"><source src="./assets/clips/peach.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.53"><source src="./assets/clips/orange.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.69"><source src="./assets/clips/cube.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.05"><source src="./assets/clips/box.mp4" type="video/mp4" /></video></div>
+
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.42"><source src="./assets/clips/peach.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.58"><source src="./assets/clips/box.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.74"><source src="./assets/clips/cube.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.10"><source src="./assets/clips/bottle.mp4" type="video/mp4" /></video></div>
+            <div class="hero-tile"><video autoplay muted loop playsinline preload="auto" data-phase="0.26"><source src="./assets/clips/orange.mp4" type="video/mp4" /></video></div>
+          </div>
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <nav class="hero-nav" aria-label="Project navigation">
+          <a href="#idea">Key Idea</a>
+          <a href="#objects">Objects</a>
+          <a href="#results">Results</a>
+          <a class="nav-pill" href="#system">System</a>
+        </nav>
+
+        <div class="hero-copy">
+          <h1 id="hero-title">TacCast</h1>
+          <p class="hero-subtitle">Learning Camera-Aligned Contact Representations<br />for Sim-to-Real Dexterous Grasping</p>
+          <p class="hero-authors">Anonymous Authors</p>
+          <p class="hero-meta">Tactile in Simulation &nbsp;·&nbsp; No tactile at deployment</p>
+          <div class="hero-actions" aria-label="Project resources">
+            <span class="project-button" role="link" aria-disabled="true"><strong>Paper</strong><small>Coming soon</small></span>
+            <span class="project-button" role="link" aria-disabled="true"><strong>Code</strong><small>Coming soon</small></span>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#idea" aria-label="Scroll to the key idea"><span></span>Explore</a>
+      </section>
+
+      <section class="section intro" id="idea">
+        <div class="container centered">
+          <p class="eyebrow">KEY IDEA</p>
+          <h2>Simulated touch.<br />Real-world grasping.</h2>
+          <p class="lead">
+            TacCast projects simulated full-hand contact into the camera view, learns to predict that contact from depth and joint histories, and conditions a recurrent grasping policy on the predicted map.
+          </p>
+        </div>
+
+        <figure class="idea-teaser">
+          <div class="idea-teaser-scroll">
+            <img src="./assets/taccast-key-idea-teaser.jpg" alt="TacCast overview showing virtual touch in simulation, camera-aligned contact prediction, and real-world dexterous grasping" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+      </section>
+
+      <section class="section object-library" id="objects">
+        <div class="wide-container">
+          <div class="section-heading light-heading">
+            <div><p class="eyebrow">GENERALIZED REAL-WORLD GRASPING</p><h2>Grasping<br />any objects.</h2></div>
+            <p>TacCast generalizes across objects whenever their shapes and sizes are compatible with the hand. Most examples are shown at 2× speed; the continuous regrasp remains at its original speed.</p>
+          </div>
+
+          <div class="object-grid">
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/purple-cube-single.jpg" aria-label="Grasping a purple cube at two times speed">
+                <source src="./assets/object-grasps/purple-cube-single.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>01</span><h3>Purple cube</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/cylinder.jpg" aria-label="Grasping a long cylinder at two times speed">
+                <source src="./assets/object-grasps/cylinder.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>02</span><h3>Long cylinder</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/bottle.jpg" aria-label="Grasping a bottle at two times speed">
+                <source src="./assets/object-grasps/bottle.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>03</span><h3>Bottle</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/android.jpg" aria-label="Grasping an Android figure at two times speed">
+                <source src="./assets/object-grasps/android.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>04</span><h3>Android</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/bread-first.jpg" aria-label="Grasping bread at two times speed">
+                <source src="./assets/object-grasps/bread-first.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>05</span><h3>Bread</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/snack-package-last.jpg" aria-label="Grasping a snack package at two times speed">
+                <source src="./assets/object-grasps/snack-package-last.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>06</span><h3>Snack package</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/peach.jpg" aria-label="Grasping a peach at two times speed">
+                <source src="./assets/object-grasps/peach.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>07</span><h3>Peach</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/black-package.jpg" aria-label="Grasping a black package at two times speed">
+                <source src="./assets/object-grasps/black-package.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>08</span><h3>Black package</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/orange.jpg" aria-label="Grasping an orange at two times speed">
+                <source src="./assets/object-grasps/orange.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>09</span><h3>Orange</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/white-cube.jpg" aria-label="Grasping a white cube at two times speed">
+                <source src="./assets/object-grasps/white-cube.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>10</span><h3>White cube</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/short-cylinder.jpg" aria-label="Grasping a short cylinder at two times speed">
+                <source src="./assets/object-grasps/short-cylinder.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>11</span><h3>Short cylinder</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/calibration-block.jpg" aria-label="Grasping a calibration block at two times speed">
+                <source src="./assets/object-grasps/calibration-block.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>12</span><h3>Calibration block</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/huge-block.jpg" aria-label="Grasping a huge block at two times speed">
+                <source src="./assets/object-grasps/huge-block.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>13</span><h3>Huge block</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/water-bottle.jpg" aria-label="Grasping a water bottle at two times speed">
+                <source src="./assets/object-grasps/water-bottle.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>14</span><h3>Water bottle</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/bread-regrasp.jpg" aria-label="Bread failure and regrasp at two times speed">
+                <source src="./assets/object-grasps/bread-regrasp.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>15</span><h3>Bread (failure regrasp)</h3></div>
+            </article>
+            <article class="object-card">
+              <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/cube-continuous-regrasp.jpg" aria-label="Continuous cube regrasp at original speed">
+                <source src="./assets/object-grasps/cube-continuous-regrasp.mp4" type="video/mp4" />
+              </video>
+              <div class="object-meta"><span>16</span><h3>Cube (continuous regrasp)</h3></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visual-section" id="system">
+        <div class="wide-container">
+          <div class="section-heading">
+            <div><p class="eyebrow">DEPTH-NOISE PREDICTION</p><h2>Learning the<br />real sensor gap.</h2></div>
+            <p>The depth-noise generator converts clean simulated depth into D435-like observations for robust policy distillation, without running at deployment.</p>
+          </div>
+          <figure class="noise-figure">
+            <div class="depth-compare-scroll">
+              <div class="depth-compare">
+                <div class="depth-row-heading predicted-heading">
+                  <span>Predicted sensor depth</span>
+                  <small>Synchronized model output</small>
+                </div>
+                <ol class="noise-grid" aria-label="Five predicted sensor-depth frames synchronized with the D435 sequence below">
+                  <li><img src="./assets/noise-prediction/01.png" alt="Predicted sensor depth at frame 000000, initial approach" loading="lazy" decoding="async" /><span>000000</span></li>
+                  <li><img src="./assets/noise-prediction/02.png" alt="Predicted sensor depth at frame 000090, grasp alignment" loading="lazy" decoding="async" /><span>000090</span></li>
+                  <li><img src="./assets/noise-prediction/03.png" alt="Predicted sensor depth at frame 000120, first contact" loading="lazy" decoding="async" /><span>000120</span></li>
+                  <li><img src="./assets/noise-prediction/04.png" alt="Predicted sensor depth at frame 000150, grasp closure" loading="lazy" decoding="async" /><span>000150</span></li>
+                  <li><img src="./assets/noise-prediction/05.png" alt="Predicted sensor depth at frame 000240, stable lifted grasp" loading="lazy" decoding="async" /><span>000240</span></li>
+                </ol>
+                <div class="depth-row-heading d435-heading">
+                  <span>Real D435 depth</span>
+                  <small>Synchronized physical sensor</small>
+                </div>
+                <ol class="noise-grid" aria-label="Five real D435 depth frames synchronized with the predictions above">
+                  <li><img src="./assets/real-d435-depth/01.png" alt="Real D435 depth at frame 000000, initial approach" loading="lazy" decoding="async" /><span>000000</span></li>
+                  <li><img src="./assets/real-d435-depth/02.png" alt="Real D435 depth at frame 000090, grasp alignment" loading="lazy" decoding="async" /><span>000090</span></li>
+                  <li><img src="./assets/real-d435-depth/03.png" alt="Real D435 depth at frame 000120, first contact" loading="lazy" decoding="async" /><span>000120</span></li>
+                  <li><img src="./assets/real-d435-depth/04.png" alt="Real D435 depth at frame 000150, grasp closure" loading="lazy" decoding="async" /><span>000150</span></li>
+                  <li><img src="./assets/real-d435-depth/05.png" alt="Real D435 depth at frame 000240, stable lifted grasp" loading="lazy" decoding="async" /><span>000240</span></li>
+                </ol>
+              </div>
+            </div>
+            <figcaption>Predicted and measured depth at the same five frames, following the grasp from approach and contact through closure and stable lift.</figcaption>
+          </figure>
+
+          <div class="contact-views">
+            <div class="contact-views-heading">
+              <div><p class="eyebrow">CONTACT PREDICTION · MULTI-VIEW</p><h3>Contact, from<br />every angle.</h3></div>
+              <p>Each frame shows the predicted tactile contact pattern from a different hand pose and camera-aligned viewpoint.</p>
+            </div>
+
+            <ol class="contact-view-grid" aria-label="Predicted tactile contact from 24 viewpoints">
+              <li><img src="./assets/contact-views/01_cardboard_box_episode_000000_f000023.png" alt="Predicted tactile contact on a cardboard box, view 01" loading="lazy" decoding="async" /><span>01</span></li>
+              <li><img src="./assets/contact-views/02_cardboard_box_episode_000000_f000038.png" alt="Predicted tactile contact on a cardboard box, view 02" loading="lazy" decoding="async" /><span>02</span></li>
+              <li><img src="./assets/contact-views/03_cardboard_box_episode_000000_f000066.png" alt="Predicted tactile contact on a cardboard box, view 03" loading="lazy" decoding="async" /><span>03</span></li>
+              <li><img src="./assets/contact-views/04_cube_episode_000000_f000024.png" alt="Predicted tactile contact on a cube, view 04" loading="lazy" decoding="async" /><span>04</span></li>
+              <li><img src="./assets/contact-views/05_cube_episode_000000_f000084.png" alt="Predicted tactile contact on a cube, view 05" loading="lazy" decoding="async" /><span>05</span></li>
+              <li><img src="./assets/contact-views/06_cube_episode_000001_f000112.png" alt="Predicted tactile contact on a cube, view 06" loading="lazy" decoding="async" /><span>06</span></li>
+              <li><img src="./assets/contact-views/07_cube_episode_000002_f000119.png" alt="Predicted tactile contact on a cube, view 07" loading="lazy" decoding="async" /><span>07</span></li>
+              <li><img src="./assets/contact-views/08_cube_episode_000003_f000040.png" alt="Predicted tactile contact on a cube, view 08" loading="lazy" decoding="async" /><span>08</span></li>
+              <li><img src="./assets/contact-views/09_cube_episode_000003_f000112.png" alt="Predicted tactile contact on a cube, view 09" loading="lazy" decoding="async" /><span>09</span></li>
+              <li><img src="./assets/contact-views/10_cube_episode_000004_f000017.png" alt="Predicted tactile contact on a cube, view 10" loading="lazy" decoding="async" /><span>10</span></li>
+              <li><img src="./assets/contact-views/11_cube_episode_000004_f000110.png" alt="Predicted tactile contact on a cube, view 11" loading="lazy" decoding="async" /><span>11</span></li>
+              <li><img src="./assets/contact-views/12_cube_episode_000006_f000114.png" alt="Predicted tactile contact on a cube, view 12" loading="lazy" decoding="async" /><span>12</span></li>
+              <li><img src="./assets/contact-views/13_cube_episode_000007_f000042.png" alt="Predicted tactile contact on a cube, view 13" loading="lazy" decoding="async" /><span>13</span></li>
+              <li><img src="./assets/contact-views/14_cube_episode_000008_f000045.png" alt="Predicted tactile contact on a cube, view 14" loading="lazy" decoding="async" /><span>14</span></li>
+              <li><img src="./assets/contact-views/15_cube_episode_000008_f000068.png" alt="Predicted tactile contact on a cube, view 15" loading="lazy" decoding="async" /><span>15</span></li>
+              <li><img src="./assets/contact-views/16_cube_episode_000010_f000018.png" alt="Predicted tactile contact on a cube, view 16" loading="lazy" decoding="async" /><span>16</span></li>
+              <li><img src="./assets/contact-views/17_cube_episode_000010_f000078.png" alt="Predicted tactile contact on a cube, view 17" loading="lazy" decoding="async" /><span>17</span></li>
+              <li><img src="./assets/contact-views/18_cube_episode_000011_f000034.png" alt="Predicted tactile contact on a cube, view 18" loading="lazy" decoding="async" /><span>18</span></li>
+              <li><img src="./assets/contact-views/19_cube_episode_000012_f000109.png" alt="Predicted tactile contact on a cube, view 19" loading="lazy" decoding="async" /><span>19</span></li>
+              <li><img src="./assets/contact-views/20_cube_episode_000012_f000114.png" alt="Predicted tactile contact on a cube, view 20" loading="lazy" decoding="async" /><span>20</span></li>
+              <li><img src="./assets/contact-views/21_cube_episode_000014_f000094.png" alt="Predicted tactile contact on a cube, view 21" loading="lazy" decoding="async" /><span>21</span></li>
+              <li><img src="./assets/contact-views/22_cube_episode_000014_f000109.png" alt="Predicted tactile contact on a cube, view 22" loading="lazy" decoding="async" /><span>22</span></li>
+              <li><img src="./assets/contact-views/23_cube_episode_000015_f000018.png" alt="Predicted tactile contact on a cube, view 23" loading="lazy" decoding="async" /><span>23</span></li>
+              <li><img src="./assets/contact-views/24_pomegranate_episode_000010_f000039.png" alt="Predicted tactile contact on a pomegranate, view 24" loading="lazy" decoding="async" /><span>24</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section results" id="results">
+        <div class="wide-container">
+          <div class="results-intro centered">
+            <p class="eyebrow">RESULTS AT A GLANCE</p>
+            <h2>Contact prediction and learned depth noise improve the lift.</h2>
+            <p class="lead compact">Across eight physical objects, the full system—predicted contact plus learned depth corruption—delivers the strongest stable-lifting success on both seen and unseen geometries.</p>
+          </div>
+
+          <div class="result-highlights">
+            <article><strong>95.14%</strong><span>seen-object success</span><small>+6.25 pp from contact · +7.64 pp from learned depth noise</small></article>
+            <article><strong>89.58%</strong><span>unseen-object success</span><small>+8.33 pp from contact · +7.64 pp from learned depth noise</small></article>
+          </div>
+
+          <div class="real-world-chart" aria-label="Overall real-world stable-lifting success by method">
+            <div class="chart-topline">
+              <strong>Overall real-world stable-lifting success</strong>
+              <span>36 trials per object · 4 objects per split</span>
+            </div>
+            <div class="chart-head" aria-hidden="true"><span>Method</span><span>Seen objects</span><span>Unseen objects</span></div>
+
+            <article class="method-row baseline">
+              <div class="method-name"><strong>DextrAH-G</strong><span>Depth + proprioception</span></div>
+              <div class="score-cell" data-split="Seen"><div class="score-track" role="progressbar" aria-label="DextrAH-G seen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="81.25"><i style="--score:81.25%"></i></div><strong>81.25%</strong></div>
+              <div class="score-cell" data-split="Unseen"><div class="score-track" role="progressbar" aria-label="DextrAH-G unseen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="73.61"><i style="--score:73.61%"></i></div><strong>73.61%</strong></div>
+            </article>
+
+            <article class="method-row no-contact">
+              <div class="method-name"><strong>TacCast w/o Pred. Contact</strong><span>Learned depth corruption only</span></div>
+              <div class="score-cell" data-split="Seen"><div class="score-track" role="progressbar" aria-label="TacCast without predicted contact seen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88.89"><i style="--score:88.89%"></i></div><strong>88.89%</strong></div>
+              <div class="score-cell" data-split="Unseen"><div class="score-track" role="progressbar" aria-label="TacCast without predicted contact unseen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="81.25"><i style="--score:81.25%"></i></div><strong>81.25%</strong></div>
+            </article>
+
+            <article class="method-row no-noise">
+              <div class="method-name"><strong>TacCast w/o Noise</strong><span>Predicted contact only</span></div>
+              <div class="score-cell" data-split="Seen"><div class="score-track" role="progressbar" aria-label="TacCast without learned depth corruption seen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="87.50"><i style="--score:87.5%"></i></div><strong>87.50%</strong></div>
+              <div class="score-cell" data-split="Unseen"><div class="score-track" role="progressbar" aria-label="TacCast without learned depth corruption unseen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="81.94"><i style="--score:81.94%"></i></div><strong>81.94%</strong></div>
+            </article>
+
+            <article class="method-row ours">
+              <div class="method-name"><strong>TacCast (Ours)</strong><span>Predicted contact + learned depth corruption</span></div>
+              <div class="score-cell" data-split="Seen"><div class="score-track" role="progressbar" aria-label="TacCast seen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95.14"><i style="--score:95.14%"></i></div><strong>95.14%</strong></div>
+              <div class="score-cell" data-split="Unseen"><div class="score-track" role="progressbar" aria-label="TacCast unseen-object success" aria-valuemin="0" aria-valuemax="100" aria-valuenow="89.58"><i style="--score:89.58%"></i></div><strong>89.58%</strong></div>
+            </article>
+          </div>
+
+          <p class="chart-note">Full TacCast leads every evaluated object while deploying with depth and proprioception only—no physical tactile sensing.</p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <strong>TacCast</strong>
+      <span>Camera-aligned contact · Sim-to-real dexterous grasping · ICRA 2027</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
