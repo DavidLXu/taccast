@@ -79,7 +79,7 @@
             <p>TacCast generalizes across objects whenever their shapes and sizes are compatible with the hand. Most examples are shown at 2× speed; the continuous regrasp remains at its original speed.</p>
           </div>
 
-          <div class="object-grid">
+          <div class="object-grid is-collapsed" id="object-grid">
             <article class="object-card">
               <video autoplay muted loop playsinline controls preload="metadata" poster="./assets/object-grasps/purple-cube-single.jpg" aria-label="Grasping a purple cube at two times speed">
                 <source src="./assets/object-grasps/purple-cube-single.mp4" type="video/mp4" />
@@ -177,6 +177,9 @@
               <div class="object-meta"><span>16</span><h3>Cube (continuous regrasp)</h3></div>
             </article>
           </div>
+          <button class="gallery-toggle gallery-toggle-dark" type="button" aria-expanded="false" aria-controls="object-grid" data-gallery-toggle="object-grid" data-open-label="Show all 16 objects" data-close-label="Show fewer objects">
+            <span>Show all 16 objects</span><span class="gallery-toggle-icon" aria-hidden="true">↓</span>
+          </button>
         </div>
       </section>
 
@@ -222,7 +225,7 @@
               <p>Each frame shows the predicted tactile contact pattern from a different hand pose and camera-aligned viewpoint.</p>
             </div>
 
-            <ol class="contact-view-grid" aria-label="Predicted tactile contact from 24 viewpoints">
+            <ol class="contact-view-grid is-collapsed" id="contact-view-grid" aria-label="Predicted tactile contact from 24 viewpoints">
               <li><img src="./assets/contact-views/01_cardboard_box_episode_000000_f000023.png" alt="Predicted tactile contact on a cardboard box, view 01" loading="lazy" decoding="async" /><span>01</span></li>
               <li><img src="./assets/contact-views/02_cardboard_box_episode_000000_f000038.png" alt="Predicted tactile contact on a cardboard box, view 02" loading="lazy" decoding="async" /><span>02</span></li>
               <li><img src="./assets/contact-views/03_cardboard_box_episode_000000_f000066.png" alt="Predicted tactile contact on a cardboard box, view 03" loading="lazy" decoding="async" /><span>03</span></li>
@@ -248,6 +251,9 @@
               <li><img src="./assets/contact-views/23_cube_episode_000015_f000018.png" alt="Predicted tactile contact on a cube, view 23" loading="lazy" decoding="async" /><span>23</span></li>
               <li><img src="./assets/contact-views/24_pomegranate_episode_000010_f000039.png" alt="Predicted tactile contact on a pomegranate, view 24" loading="lazy" decoding="async" /><span>24</span></li>
             </ol>
+            <button class="gallery-toggle" type="button" aria-expanded="false" aria-controls="contact-view-grid" data-gallery-toggle="contact-view-grid" data-open-label="Show all 24 views" data-close-label="Show fewer views">
+              <span>Show all 24 views</span><span class="gallery-toggle-icon" aria-hidden="true">↓</span>
+            </button>
           </div>
         </div>
       </section>
