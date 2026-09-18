@@ -166,8 +166,6 @@ h2 { margin: 0; font-size: clamp(2.7rem, 5.4vw, 5.4rem); line-height: 1.01; lett
 .contact-view-grid img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .contact-view-grid span { position: absolute; top: 8px; left: 9px; color: rgba(255,255,255,.58); font: 700 .62rem/1 Arial, sans-serif; letter-spacing: .1em; }
 
-.results h2 { font-size: clamp(2.5rem, 4.8vw, 4.7rem); }
-.results-intro { width: min(100%, var(--max)); margin: 0 auto; }
 .result-highlights { width: min(100%, 940px); margin: 62px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .result-highlights article { min-height: 220px; padding: 34px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .result-highlights strong { color: var(--blue); font-size: clamp(3.4rem, 6.5vw, 6rem); line-height: .95; letter-spacing: -.055em; font-variant-numeric: tabular-nums; }
